@@ -1,10 +1,11 @@
 import {
 	IExecuteFunctions,
-	INodeExecutionData,
+	INodeExecutionData, INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
 	NodeOperationError,
 } from 'n8n-workflow';
+import {ILoadOptionsFunctions} from "n8n-core";
 
 export class ExampleNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -18,33 +19,87 @@ export class ExampleNode implements INodeType {
 		},
 		inputs: ['main'],
 		outputs: ['main'],
-		properties: [
-			// Node properties which the user gets displayed and
-			// can change on the node.
+		credentials: [
 			{
-				displayName: 'My String',
-				name: 'myString',
+				name: 'hapheusFusionBrainAiApiCredentials',
+				required: true,
+			},
+		],
+		requestDefaults: {
+			ignoreHttpStatusErrors: true,
+			baseURL: 'https://api-key.fusionbrain.ai/key/api/v1/',
+		},
+		properties: [
+			{
+				displayName: 'Model',
+				name: 'model_id',
+				type: 'options',
+				default: '',
+				placeholder: 'Model',
+				required: true,
+				typeOptions: {
+					loadOptionsMethod: 'loadModels',
+				},
+			},
+			{
+				displayName: 'Prompt',
+				name: 'prompt',
 				type: 'string',
 				default: '',
-				placeholder: 'Placeholder value',
-				description: 'The description text',
+				placeholder: 'Prompt',
+				description: 'Enter your prompt, for example: a drawing of nature drawn with a brush and paints, the sea, mountains, pine trees, calm colors',
+				required: true,
+			},
+			{
+				displayName: 'Negative prompt',
+				name: 'negative_prompt',
+				type: 'string',
+				default: '',
+				placeholder: 'Negative prompt',
+				description: 'Buches, red flowers, birds',
+				required: false,
 			},
 		],
 	};
 
-	// The function below is responsible for actually doing whatever this node
-	// is supposed to do. In this case, we're just appending the `myString` property
-	// with whatever the user has entered.
-	// You can make async calls and use `await`.
+	methods = {
+		loadOptions: {
+			async loadModels(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				const returnData: INodePropertyOptions[] = [];
+
+				const credentials = await this.getCredentials('hapheusFusionBrainAiApiCredentials');
+
+				if (!credentials) throw new Error('Credentials are required');
+
+				const responseData = await this.helpers.request({
+					method: "GET",
+					url: 'https://api-key.fusionbrain.ai/key/api/v1/models',
+					headers: {
+						'X-Key': `Key ${credentials.apiKey}`,
+						'X-Secret': `Secret ${credentials.secretKey}`,
+					}
+				});
+
+				const models = JSON.parse(responseData);
+
+				for (const model of models) {
+					returnData.push({
+						name: `${model.name} (${model.version})`,
+						value: model.id
+					});
+				}
+
+				return returnData;
+			},
+		},
+	};
+
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		const items = this.getInputData();
 
 		let item: INodeExecutionData;
 		let myString: string;
 
-		// Iterates over all input items and add the key "myString" with the
-		// value the parameter "myString" resolves to.
-		// (This could be a different value for each item in case it contains an expression)
 		for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
 			try {
 				myString = this.getNodeParameter('myString', itemIndex, '') as string;
@@ -52,15 +107,10 @@ export class ExampleNode implements INodeType {
 
 				item.json['myString'] = myString;
 			} catch (error) {
-				// This node should never fail but we want to showcase how
-				// to handle errors.
 				if (this.continueOnFail()) {
-					items.push({ json: this.getInputData(itemIndex)[0].json, error, pairedItem: itemIndex });
+					items.push({json: this.getInputData(itemIndex)[0].json, error, pairedItem: itemIndex});
 				} else {
-					// Adding `itemIndex` allows other workflows to handle this error
 					if (error.context) {
-						// If the error thrown already contains the context property,
-						// only append the itemIndex
 						error.context.itemIndex = itemIndex;
 						throw error;
 					}
