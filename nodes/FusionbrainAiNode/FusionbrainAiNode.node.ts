@@ -22,7 +22,7 @@ export class FusionbrainAiNode implements INodeType {
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'fusionbrainAiCredentialsApi',
+				name: 'hapheusFusionbrainAiCredentialsApi',
 				required: true,
 			},
 		],
@@ -44,7 +44,8 @@ export class FusionbrainAiNode implements INodeType {
 				name: 'style',
 				type: 'options',
 				description: 'Choose from the list. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
-				default: '',
+				// eslint-disable-next-line
+				default: 'DEFAULT',
 				placeholder: 'Style',
 				required: true,
 				typeOptions: {
@@ -107,7 +108,7 @@ export class FusionbrainAiNode implements INodeType {
 					uri: 'https://api-key.fusionbrain.ai/key/api/v1/models',
 					json: true,
 				};
-				const models = await this.helpers.requestWithAuthentication.call(this, 'fusionbrainAiCredentialsApi', options);
+				const models = await this.helpers.requestWithAuthentication.call(this, 'hapheusFusionbrainAiCredentialsApi', options);
 
 				for (const model of models) {
 					returnData.push({
@@ -191,7 +192,7 @@ export class FusionbrainAiNode implements INodeType {
 					},
 				};
 
-				const initialResponse = await this.helpers.requestWithAuthentication.call(this, 'fusionbrainAiCredentialsApi', options);
+				const initialResponse = await this.helpers.requestWithAuthentication.call(this, 'hapheusFusionbrainAiCredentialsApi', options);
 
 				const checkStatusOptions: OptionsWithUri = {
 					method: 'GET',
@@ -202,15 +203,15 @@ export class FusionbrainAiNode implements INodeType {
 				let response = undefined;
 				do {
 					await new Promise(resolve => setTimeout(resolve, 250));
-					response = await this.helpers.requestWithAuthentication.call(this, 'fusionbrainAiCredentialsApi', checkStatusOptions);
+					response = await this.helpers.requestWithAuthentication.call(this, 'hapheusFusionbrainAiCredentialsApi', checkStatusOptions);
 				} while (response.status !== 'DONE');
 
 				for (let i = 0; i < response.images.length; i++) {
 					const binaryData = await this.helpers.prepareBinaryData(Buffer.from(response.images[i], 'base64'));
-					binaryData.mimeType = "image/png";
-					binaryData.fileExtension = "png";
+					binaryData.mimeType = "image/jpg";
+					binaryData.fileExtension = "jpg";
 					binaryData.fileType = "image";
-					binaryData.fileName = "image.png";
+					binaryData.fileName = "image.jpg";
 
 					newItems.push({
 						binary: {

@@ -6,15 +6,18 @@ import {
 } from 'n8n-workflow';
 
 export class FusionbrainAiCredentialsApi implements ICredentialType {
-	name = 'fusionbrainAiCredentialsApi';
+	name = 'hapheusFusionbrainAiCredentialsApi';
 	displayName = 'fusionbrain.ai API';
 	documentationUrl = 'https://fusionbrain.ai/docs/en/';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Api Key',
 			name: 'apiKey',
+			// eslint-disable-next-line
 			type: 'string',
-			typeOptions: { password: true },
+			typeOptions: {
+				password: false,
+			},
 			default: '',
 		},
 		{
@@ -32,8 +35,8 @@ export class FusionbrainAiCredentialsApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				"X-Key": '={{"Key " + $credentials.apiKey}}',
-				"X-Secret": '={{"Secret " + $credentials.secretKey}}',
+				'X-Key': '={{"Key " + $credentials.apiKey}}',
+				'X-Secret': '={{"Secret " + $credentials.secretKey}}',
 			},
 		},
 	};
