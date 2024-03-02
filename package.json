@@ -1,9 +1,15 @@
 {
-  "name": "n8n-nodes-fusionbainai",
+  "name": "n8n-nodes-fusionbrain",
   "version": "0.1.0",
-  "description": "fusionbrain.ai text 2 image",
+  "description": "fusionbrain.ai n8n-node for text2image api",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n",
+    "n8n-node",
+    "n8n-community-node-package",
+    "fusionbrain.ai",
+    "text2image",
+    "kandinsky",
+    "ai"
   ],
   "license": "MIT",
   "homepage": "",
