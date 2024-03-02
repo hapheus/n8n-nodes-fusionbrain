@@ -12,6 +12,8 @@ export class FusionbrainAiNode implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'fusionbrain.ai',
 		name: 'fusionbrainAiNode',
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		icon: 'file:fusionbrain.ai.png',
 		group: ['transform'],
 		version: 1,
 		description: 'fusionbrain.ai Text2Image',

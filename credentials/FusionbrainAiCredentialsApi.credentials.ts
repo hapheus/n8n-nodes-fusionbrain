@@ -8,6 +8,7 @@ import {
 export class FusionbrainAiCredentialsApi implements ICredentialType {
 	name = 'hapheusFusionbrainAiCredentialsApi';
 	displayName = 'fusionbrain.ai API';
+	icon = 'file:fusionbrain.ai.png';
 	documentationUrl = 'https://fusionbrain.ai/docs/en/';
 	properties: INodeProperties[] = [
 		{
