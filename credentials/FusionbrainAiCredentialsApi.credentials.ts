@@ -5,8 +5,8 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class FusionBrainAiCredentials implements ICredentialType {
-	name = 'hapheusFusionBrainAiApiCredentials';
+export class FusionbrainAiCredentialsApi implements ICredentialType {
+	name = 'fusionbrainAiCredentialsApi';
 	displayName = 'fusionbrain.ai API';
 	documentationUrl = 'https://fusionbrain.ai/docs/en/';
 	properties: INodeProperties[] = [
@@ -14,6 +14,7 @@ export class FusionBrainAiCredentials implements ICredentialType {
 			displayName: 'Api Key',
 			name: 'apiKey',
 			type: 'string',
+			typeOptions: { password: true },
 			default: '',
 		},
 		{

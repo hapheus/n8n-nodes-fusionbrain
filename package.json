@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-fusionbainai",
   "version": "0.1.0",
-  "description": "",
+  "description": "fusionbrain.ai text 2 image",
   "keywords": [
     "n8n-community-node-package"
   ],
@@ -33,7 +33,7 @@
       "dist/credentials/FusionBrainAiCredentials.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js"
+      "dist/nodes/FusionbrainAiNode/FusionbrainAiNode.node.js"
     ]
   },
   "devDependencies": {
