@@ -30,7 +30,7 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/FusionBrainAiCredentials.credentials.js"
+      "dist/credentials/FusionbrainAiCredentials.credentials.js"
     ],
     "nodes": [
       "dist/nodes/FusionbrainAiNode/FusionbrainAiNode.node.js"
