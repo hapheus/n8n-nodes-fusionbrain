@@ -126,7 +126,7 @@ export class FusionbrainAiNode implements INodeType {
 
 				const options: OptionsWithUri = {
 					method: 'GET',
-					uri: 'https://cdn.fusionbrain.ai/static/styles/api',
+					uri: 'https://cdn.fusionbrain.ai/static/styles/key',
 					json: true,
 				};
 				const styles = await this.helpers.request(options);

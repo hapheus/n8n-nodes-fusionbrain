@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-fusionbrain",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "fusionbrain.ai n8n-node for text2image api",
   "keywords": [
     "n8n",
