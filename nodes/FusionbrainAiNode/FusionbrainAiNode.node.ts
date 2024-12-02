@@ -1,12 +1,13 @@
 import {
 	IExecuteFunctions,
-	INodeExecutionData, INodePropertyOptions,
+	INodeExecutionData,
+	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
 	NodeOperationError,
 } from 'n8n-workflow';
-import {ILoadOptionsFunctions} from "n8n-core";
-import {OptionsWithUri} from "request-promise-native";
+import { ILoadOptionsFunctions } from 'n8n-core';
+import { OptionsWithUri } from 'request-promise-native';
 
 export class FusionbrainAiNode implements INodeType {
 	description: INodeTypeDescription = {
@@ -30,10 +31,25 @@ export class FusionbrainAiNode implements INodeType {
 		],
 		properties: [
 			{
+				displayName: 'Operation',
+				name: 'operation',
+				type: 'options',
+				noDataExpression: true,
+				default: 'text2image',
+				required: true,
+				options: [
+					{
+						name: 'Text to Image',
+						value: 'text2image',
+					},
+				],
+			},
+			{
 				displayName: 'Model Name or ID',
 				name: 'model_id',
 				type: 'options',
-				description: 'Choose from the list. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
+				description:
+					'Choose from the list. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 				default: '',
 				placeholder: 'Model',
 				required: true,
@@ -45,7 +61,8 @@ export class FusionbrainAiNode implements INodeType {
 				displayName: 'Style Name or ID',
 				name: 'style',
 				type: 'options',
-				description: 'Choose from the list. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
+				description:
+					'Choose from the list. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 				// eslint-disable-next-line
 				default: 'DEFAULT',
 				placeholder: 'Style',
@@ -60,14 +77,16 @@ export class FusionbrainAiNode implements INodeType {
 				type: 'string',
 				default: '',
 				placeholder: 'Prompt',
-				description: 'Enter your prompt, for example: a drawing of nature drawn with a brush and paints, the sea, mountains, pine trees, calm colors',
+				description:
+					'Enter your prompt, for example: a drawing of nature drawn with a brush and paints, the sea, mountains, pine trees, calm colors',
 				required: true,
 			},
 			{
 				displayName: 'Negative Prompt',
 				name: 'negative_prompt',
 				type: 'string',
-				default: 'worst quality, normal quality, low quality, low res, blurry, text, watermark, logo, banner, extra digits, cropped, jpeg artifacts, signature, username, error, sketch ,duplicate, ugly, monochrome, geometry, mutation, disgusting',
+				default:
+					'worst quality, normal quality, low quality, low res, blurry, text, watermark, logo, banner, extra digits, cropped, jpeg artifacts, signature, username, error, sketch ,duplicate, ugly, monochrome, geometry, mutation, disgusting',
 				placeholder: 'Negative prompt',
 				description: 'Enter your negative prompt, for example: bushes, red flowers, birds',
 			},
@@ -81,8 +100,8 @@ export class FusionbrainAiNode implements INodeType {
 				required: true,
 				typeOptions: {
 					minValue: 1,
-					maxValue: 1024
-				}
+					maxValue: 1024,
+				},
 			},
 			{
 				displayName: 'Height',
@@ -94,8 +113,8 @@ export class FusionbrainAiNode implements INodeType {
 				required: true,
 				typeOptions: {
 					minValue: 1,
-					maxValue: 1024
-				}
+					maxValue: 1024,
+				},
 			},
 		],
 	};
@@ -110,12 +129,16 @@ export class FusionbrainAiNode implements INodeType {
 					uri: 'https://api-key.fusionbrain.ai/key/api/v1/models',
 					json: true,
 				};
-				const models = await this.helpers.requestWithAuthentication.call(this, 'hapheusFusionbrainAiCredentialsApi', options);
+				const models = await this.helpers.requestWithAuthentication.call(
+					this,
+					'hapheusFusionbrainAiCredentialsApi',
+					options,
+				);
 
 				for (const model of models) {
 					returnData.push({
 						name: `${model.name} (${model.version})`,
-						value: model.id
+						value: model.id,
 					});
 				}
 
@@ -134,7 +157,7 @@ export class FusionbrainAiNode implements INodeType {
 				for (const style of styles) {
 					returnData.push({
 						name: style.titleEn,
-						value: style.name
+						value: style.name,
 					});
 				}
 
@@ -166,14 +189,14 @@ export class FusionbrainAiNode implements INodeType {
 				height = this.getNodeParameter('height', itemIndex, '') as number;
 
 				const data = {
-					"type": "GENERATE",
-					"style": style,
-					"width": width,
-					"height": height,
-					"negativePromptUnclip": negativePrompt,
-					"generateParams": {
-						"query": prompt
-					}
+					type: 'GENERATE',
+					style: style,
+					width: width,
+					height: height,
+					negativePromptUnclip: negativePrompt,
+					generateParams: {
+						query: prompt,
+					},
 				};
 
 				const options: OptionsWithUri = {
@@ -188,32 +211,43 @@ export class FusionbrainAiNode implements INodeType {
 						params: {
 							value: JSON.stringify(data),
 							options: {
-								'contentType': 'application/json',
+								contentType: 'application/json',
 							},
 						},
 					},
 				};
 
-				const initialResponse = await this.helpers.requestWithAuthentication.call(this, 'hapheusFusionbrainAiCredentialsApi', options);
+				const initialResponse = await this.helpers.requestWithAuthentication.call(
+					this,
+					'hapheusFusionbrainAiCredentialsApi',
+					options,
+				);
 
 				const checkStatusOptions: OptionsWithUri = {
 					method: 'GET',
-					uri: 'https://api-key.fusionbrain.ai/key/api/v1/text2image/status/' + initialResponse.uuid,
+					uri:
+						'https://api-key.fusionbrain.ai/key/api/v1/text2image/status/' + initialResponse.uuid,
 					json: true,
 				};
 
 				let response = undefined;
 				do {
-					await new Promise(resolve => setTimeout(resolve, 250));
-					response = await this.helpers.requestWithAuthentication.call(this, 'hapheusFusionbrainAiCredentialsApi', checkStatusOptions);
+					await new Promise((resolve) => setTimeout(resolve, 250));
+					response = await this.helpers.requestWithAuthentication.call(
+						this,
+						'hapheusFusionbrainAiCredentialsApi',
+						checkStatusOptions,
+					);
 				} while (response.status !== 'DONE');
 
 				for (let i = 0; i < response.images.length; i++) {
-					const binaryData = await this.helpers.prepareBinaryData(Buffer.from(response.images[i], 'base64'));
-					binaryData.mimeType = "image/jpg";
-					binaryData.fileExtension = "jpg";
-					binaryData.fileType = "image";
-					binaryData.fileName = "image.jpg";
+					const binaryData = await this.helpers.prepareBinaryData(
+						Buffer.from(response.images[i], 'base64'),
+					);
+					binaryData.mimeType = 'image/jpg';
+					binaryData.fileExtension = 'jpg';
+					binaryData.fileType = 'image';
+					binaryData.fileName = 'image.jpg';
 
 					newItems.push({
 						binary: {
@@ -231,7 +265,11 @@ export class FusionbrainAiNode implements INodeType {
 				returnData.push(...newItems);
 			} catch (error) {
 				if (this.continueOnFail()) {
-					newItems.push({json: this.getInputData(itemIndex)[0].json, error, pairedItem: itemIndex});
+					newItems.push({
+						json: this.getInputData(itemIndex)[0].json,
+						error,
+						pairedItem: itemIndex,
+					});
 				} else {
 					if (error.context) {
 						error.context.itemIndex = itemIndex;
