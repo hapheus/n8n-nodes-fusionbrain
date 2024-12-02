@@ -52,7 +52,16 @@ Create a free fusionbrain.ai account [here](https://fusionbrain.ai/en/).
 ### Detailed Photo
 ![default style](img/style-detailed-photo.png)
 
+## Test Results
+
+This section displays the results of tests for each operation, based on a live n8n instance.
+
+| Operation     | Last Tested                                       | Status                                             | Result                                       |
+|---------------|---------------------------------------------------|----------------------------------------------------|----------------------------------------------|
+| Text to Image | <span id="test-text2image-date">2024-12-02</span> | <span id="test-text2image-result">✅ Success</span> | ![2024-12-02](img/testresuls/2024-12-02.jpg) |
+
 ## Resources
+
 
 * [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
 * [fusionbrain.ai API Documentation](https://fusionbrain.ai/docs/en/doc/api-dokumentaciya/)
