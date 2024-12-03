@@ -58,7 +58,7 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                       | Status                                             | Result                                                                                |
 |---------------|---------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2024-12-02</span> | <span id="test-text2image-status">✅ Success</span> | <span id="test-text2image-result">![2024-12-02](img/testresuls/2024-12-02.jpg)</span> |
+| Text to Image | <span id="test-text2image-date">2024-12-03</span> | <span id="test-text2image-status">✅ Success</span> | <span id="test-text2image-result">![2024-12-03](img/testresuls/2024-12-03.jpg)</span> |
 
 ## Resources
 
