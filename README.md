@@ -27,7 +27,10 @@ After installing the node, you can use it like any other node. n8n displays the 
 ## Operations
 
 It supports these operations:
-* Text2Image Generation 
+
+* **Text2Image**: Generates an image based on a given prompt and optional parameters like style and dimensions.
+* **listModels**: Retrieves a list of available models that can be used for image generation.
+* **listStyles**: Retrieves a list of available styles to customize the generated images.
 
 ## Credentials
 
@@ -37,11 +40,11 @@ Create a free fusionbrain.ai account [here](https://fusionbrain.ai/en/).
 
 ## Usage
 
-* model: choose the text 2 image model to use 
-* style: choose the style to use (default: no style)
-* prompt: the text 2 image prompt
-* negative_prompt: the text 2 image negative prompt (optional)
-* width / height: default 1024 x 1024, (it is recommended to use multiples of 64 on each side for better results.)
+* **Model**: Select the text-to-image model to use.
+* **Style**: Choose a style for the generated image (default: no style).
+* **Prompt**: The main input text used to generate the image.
+* **Negative Prompt**: (Optional) Specify elements to avoid in the generated image.
+* **Width / Height**: Default is 1024 x 1024. It is recommended to use dimensions that are multiples of 64 for optimal results.
 
 ### Default Style
 ![default style](img/style-default.png)
@@ -56,12 +59,13 @@ Create a free fusionbrain.ai account [here](https://fusionbrain.ai/en/).
 
 This section displays the results of tests for each operation, based on a live n8n instance.
 
-| Operation     | Last Tested                                       | Status                                             | Result                                                                                |
-|---------------|---------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2024-12-03</span> | <span id="test-text2image-status">✅ Success</span> | <span id="test-text2image-result">![2024-12-03](img/testresuls/2024-12-03.jpg)</span> |
+| Operation     | Last Tested                                        | Status                                              | Result                                                                                |
+|---------------|----------------------------------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------|
+| Text to Image | <span id="test-text2image-date">2024-12-03</span>  | <span id="test-text2image-status">✅ Success</span>  | <span id="test-text2image-result">![2024-12-03](img/testresuls/2024-12-03.jpg)</span> |
+| List Models   | <span id="test-list-models-date">2024-12-03</span> | <span id="test-list-models-status">✅ Success</span> |                                                                                       |
+| List Styles   | <span id="test-list-styles-date">2024-12-03</span> | <span id="test-list-styles-status">✅ Success</span> |                                                                                       |
 
 ## Resources
-
 
 * [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
 * [fusionbrain.ai API Documentation](https://fusionbrain.ai/docs/en/doc/api-dokumentaciya/)

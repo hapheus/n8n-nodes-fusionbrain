@@ -39,8 +39,16 @@ export class FusionbrainAiNode implements INodeType {
 				required: true,
 				options: [
 					{
-						name: 'Text to Image',
+						name: 'Generate Image',
 						value: 'text2image',
+					},
+					{
+						name: 'List Models',
+						value: 'listModels',
+					},
+					{
+						name: 'List Styles',
+						value: 'listStyles',
 					},
 				],
 			},
@@ -56,6 +64,11 @@ export class FusionbrainAiNode implements INodeType {
 				typeOptions: {
 					loadOptionsMethod: 'loadModels',
 				},
+				displayOptions: {
+					show: {
+						operation: ['text2image'],
+					},
+				},
 			},
 			{
 				displayName: 'Style Name or ID',
@@ -70,6 +83,11 @@ export class FusionbrainAiNode implements INodeType {
 				typeOptions: {
 					loadOptionsMethod: 'loadStyles',
 				},
+				displayOptions: {
+					show: {
+						operation: ['text2image'],
+					},
+				},
 			},
 			{
 				displayName: 'Prompt',
@@ -80,6 +98,11 @@ export class FusionbrainAiNode implements INodeType {
 				description:
 					'Enter your prompt, for example: a drawing of nature drawn with a brush and paints, the sea, mountains, pine trees, calm colors',
 				required: true,
+				displayOptions: {
+					show: {
+						operation: ['text2image'],
+					},
+				},
 			},
 			{
 				displayName: 'Negative Prompt',
@@ -89,6 +112,11 @@ export class FusionbrainAiNode implements INodeType {
 					'worst quality, normal quality, low quality, low res, blurry, text, watermark, logo, banner, extra digits, cropped, jpeg artifacts, signature, username, error, sketch ,duplicate, ugly, monochrome, geometry, mutation, disgusting',
 				placeholder: 'Negative prompt',
 				description: 'Enter your negative prompt, for example: bushes, red flowers, birds',
+				displayOptions: {
+					show: {
+						operation: ['text2image'],
+					},
+				},
 			},
 			{
 				displayName: 'Width',
@@ -102,6 +130,11 @@ export class FusionbrainAiNode implements INodeType {
 					minValue: 1,
 					maxValue: 1024,
 				},
+				displayOptions: {
+					show: {
+						operation: ['text2image'],
+					},
+				},
 			},
 			{
 				displayName: 'Height',
@@ -114,6 +147,11 @@ export class FusionbrainAiNode implements INodeType {
 				typeOptions: {
 					minValue: 1,
 					maxValue: 1024,
+				},
+				displayOptions: {
+					show: {
+						operation: ['text2image'],
+					},
 				},
 			},
 		],
@@ -177,92 +215,142 @@ export class FusionbrainAiNode implements INodeType {
 		let negativePrompt: string;
 		let width: number;
 		let height: number;
+		let operation: string;
 
 		for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
 			const newItems: INodeExecutionData[] = [];
 			try {
-				modelId = this.getNodeParameter('model_id', itemIndex, '') as number;
-				style = this.getNodeParameter('style', itemIndex, '') as string;
-				prompt = this.getNodeParameter('prompt', itemIndex, '') as string;
-				negativePrompt = this.getNodeParameter('negative_prompt', itemIndex, '') as string;
-				width = this.getNodeParameter('width', itemIndex, '') as number;
-				height = this.getNodeParameter('height', itemIndex, '') as number;
+				operation = this.getNodeParameter('operation', itemIndex, '') as string;
 
-				const data = {
-					type: 'GENERATE',
-					style: style,
-					width: width,
-					height: height,
-					negativePromptUnclip: negativePrompt,
-					generateParams: {
-						query: prompt,
-					},
-				};
+				if (operation === 'text2image') {
+					modelId = this.getNodeParameter('model_id', itemIndex, '') as number;
+					style = this.getNodeParameter('style', itemIndex, '') as string;
+					prompt = this.getNodeParameter('prompt', itemIndex, '') as string;
+					negativePrompt = this.getNodeParameter('negative_prompt', itemIndex, '') as string;
+					width = this.getNodeParameter('width', itemIndex, '') as number;
+					height = this.getNodeParameter('height', itemIndex, '') as number;
 
-				const options: OptionsWithUri = {
-					method: 'POST',
-					uri: 'https://api-key.fusionbrain.ai/key/api/v1/text2image/run',
-					json: true,
-					headers: {
-						'Content-Type': 'multipart/form-data',
-					},
-					formData: {
-						model_id: modelId,
-						params: {
-							value: JSON.stringify(data),
-							options: {
-								contentType: 'application/json',
+					const data = {
+						type: 'GENERATE',
+						style: style,
+						width: width,
+						height: height,
+						negativePromptUnclip: negativePrompt,
+						generateParams: {
+							query: prompt,
+						},
+					};
+
+					const options: OptionsWithUri = {
+						method: 'POST',
+						uri: 'https://api-key.fusionbrain.ai/key/api/v1/text2image/run',
+						json: true,
+						headers: {
+							'Content-Type': 'multipart/form-data',
+						},
+						formData: {
+							model_id: modelId,
+							params: {
+								value: JSON.stringify(data),
+								options: {
+									contentType: 'application/json',
+								},
 							},
 						},
-					},
-				};
+					};
 
-				const initialResponse = await this.helpers.requestWithAuthentication.call(
-					this,
-					'hapheusFusionbrainAiCredentialsApi',
-					options,
-				);
-
-				const checkStatusOptions: OptionsWithUri = {
-					method: 'GET',
-					uri:
-						'https://api-key.fusionbrain.ai/key/api/v1/text2image/status/' + initialResponse.uuid,
-					json: true,
-				};
-
-				let response = undefined;
-				do {
-					await new Promise((resolve) => setTimeout(resolve, 250));
-					response = await this.helpers.requestWithAuthentication.call(
+					const initialResponse = await this.helpers.requestWithAuthentication.call(
 						this,
 						'hapheusFusionbrainAiCredentialsApi',
-						checkStatusOptions,
+						options,
 					);
-				} while (response.status !== 'DONE');
 
-				for (let i = 0; i < response.images.length; i++) {
-					const binaryData = await this.helpers.prepareBinaryData(
-						Buffer.from(response.images[i], 'base64'),
+					const checkStatusOptions: OptionsWithUri = {
+						method: 'GET',
+						uri:
+							'https://api-key.fusionbrain.ai/key/api/v1/text2image/status/' + initialResponse.uuid,
+						json: true,
+					};
+
+					let response = undefined;
+					do {
+						await new Promise((resolve) => setTimeout(resolve, 250));
+						response = await this.helpers.requestWithAuthentication.call(
+							this,
+							'hapheusFusionbrainAiCredentialsApi',
+							checkStatusOptions,
+						);
+					} while (response.status !== 'DONE');
+
+					for (let i = 0; i < response.images.length; i++) {
+						const binaryData = await this.helpers.prepareBinaryData(
+							Buffer.from(response.images[i], 'base64'),
+						);
+						binaryData.mimeType = 'image/jpg';
+						binaryData.fileExtension = 'jpg';
+						binaryData.fileType = 'image';
+						binaryData.fileName = 'image.jpg';
+
+						newItems.push({
+							binary: {
+								[dataPropertyName]: binaryData,
+							},
+							json: {
+								censored: response.censored,
+							},
+							pairedItem: {
+								item: itemIndex,
+							},
+						});
+					}
+
+					returnData.push(...newItems);
+				} else if (operation === 'listModels') {
+					const models = await this.helpers.requestWithAuthentication.call(
+						this,
+						'hapheusFusionbrainAiCredentialsApi',
+						{
+							method: 'GET',
+							uri: 'https://api-key.fusionbrain.ai/key/api/v1/models',
+							json: true,
+						},
 					);
-					binaryData.mimeType = 'image/jpg';
-					binaryData.fileExtension = 'jpg';
-					binaryData.fileType = 'image';
-					binaryData.fileName = 'image.jpg';
 
-					newItems.push({
-						binary: {
-							[dataPropertyName]: binaryData,
-						},
-						json: {
-							censored: response.censored,
-						},
-						pairedItem: {
-							item: itemIndex,
-						},
+					for (const model of models) {
+						newItems.push({
+							json: {
+								id: model.id,
+								name: model.name,
+								version: model.version,
+							},
+							pairedItem: {
+								item: itemIndex,
+							},
+						});
+					}
+
+					returnData.push(...newItems);
+				} else if (operation === 'listStyles') {
+					const styles = await this.helpers.request({
+						method: 'GET',
+						uri: 'https://cdn.fusionbrain.ai/static/styles/key',
+						json: true,
 					});
-				}
 
-				returnData.push(...newItems);
+					for (const style of styles) {
+						newItems.push({
+							json: {
+								name: style.name,
+								title: style.titleEn,
+							},
+							pairedItem: {
+								item: itemIndex,
+							},
+						});
+					}
+
+					returnData.push(...newItems);
+				}
 			} catch (error) {
 				if (this.continueOnFail()) {
 					newItems.push({
