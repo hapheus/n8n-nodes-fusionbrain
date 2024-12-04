@@ -61,9 +61,9 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                        | Status                                              | Result                                                                                |
 |---------------|----------------------------------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2024-12-03</span>  | <span id="test-text2image-status">✅ Success</span>  | <span id="test-text2image-result">![No Style 2024-12-03](img/testresuls/2024-12-03-no-style.jpg) ![Detailed Photo 2024-12-03](img/testresuls/2024-12-03-detailed-photo.jpg) ![Anime 2024-12-03](img/testresuls/2024-12-03-anime.jpg) ![Kandinsky 2024-12-03](img/testresuls/2024-12-03-kandinsky.jpg)</span> |
-| List Models   | <span id="test-list-models-date">2024-12-03</span> | <span id="test-list-models-status">✅ Success</span> |                                                                                       |
-| List Styles   | <span id="test-list-styles-date">2024-12-03</span> | <span id="test-list-styles-status">✅ Success</span> |                                                                                       |
+| Text to Image | <span id="test-text2image-date">2024-12-04</span>  | <span id="test-text2image-status">✅ Success</span>  | <span id="test-text2image-result">![No Style 2024-12-04](img/testresuls/2024-12-04-no-style.jpg) ![Detailed Photo 2024-12-04](img/testresuls/2024-12-04-detailed-photo.jpg) ![Anime 2024-12-04](img/testresuls/2024-12-04-anime.jpg) ![Kandinsky 2024-12-04](img/testresuls/2024-12-04-kandinsky.jpg)</span> |
+| List Models   | <span id="test-list-models-date">2024-12-04</span> | <span id="test-list-models-status">✅ Success</span> |                                                                                       |
+| List Styles   | <span id="test-list-styles-date">2024-12-04</span> | <span id="test-list-styles-status">✅ Success</span> |                                                                                       |
 
 ## Resources
 
