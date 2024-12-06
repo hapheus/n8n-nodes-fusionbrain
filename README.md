@@ -71,23 +71,23 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                        | Status                                              |
 |---------------|----------------------------------------------------|-----------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2024-12-05</span>  | <span id="test-text2image-status">✅ Success</span>  |
-| List Models   | <span id="test-list-models-date">2024-12-05</span> | <span id="test-list-models-status">✅ Success</span> |
-| List Styles   | <span id="test-list-styles-date">2024-12-05</span> | <span id="test-list-styles-status">✅ Success</span> |
+| Text to Image | <span id="test-text2image-date">2024-12-06</span>  | <span id="test-text2image-status">✅ Success</span>  |
+| List Models   | <span id="test-list-models-date">2024-12-06</span> | <span id="test-list-models-status">✅ Success</span> |
+| List Styles   | <span id="test-list-styles-date">2024-12-06</span> | <span id="test-list-styles-status">✅ Success</span> |
 
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">a steampunk-themed blackbird,, wearing Victorian-era clothing and surrounded by industrial machinery, by Jules Verne and H.G. Wells, full of brass gears and mechanical parts,</pre>
+<pre id="test-text2image-prompt">whale, by Cyril Rolando,</pre>
 
 **Images:**
 
 | Model           | Style          | Image                                                                                                                             |
 |-----------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2024-12-05](img/testresuls/2024-12-05-no-style.jpg)</span>                   |
-| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2024-12-05](img/testresuls/2024-12-05-detailed-photo.jpg)</span> |
-| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2024-12-05](img/testresuls/2024-12-05-anime.jpg)</span>                            |
-| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2024-12-05](img/testresuls/2024-12-05-kandinsky.jpg)</span>                |
+| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2024-12-06](img/testresuls/2024-12-06-no-style.jpg)</span>                   |
+| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2024-12-06](img/testresuls/2024-12-06-detailed-photo.jpg)</span> |
+| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2024-12-06](img/testresuls/2024-12-06-anime.jpg)</span>                            |
+| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2024-12-06](img/testresuls/2024-12-06-kandinsky.jpg)</span>                |
 
 ## Resources
 
