@@ -71,23 +71,23 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                        | Status                                              |
 |---------------|----------------------------------------------------|-----------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2024-12-07</span>  | <span id="test-text2image-status">✅ Success</span>  |
-| List Models   | <span id="test-list-models-date">2024-12-07</span> | <span id="test-list-models-status">✅ Success</span> |
-| List Styles   | <span id="test-list-styles-date">2024-12-07</span> | <span id="test-list-styles-status">✅ Success</span> |
+| Text to Image | <span id="test-text2image-date">2024-12-08</span>  | <span id="test-text2image-status">✅ Success</span>  |
+| List Models   | <span id="test-list-models-date">2024-12-08</span> | <span id="test-list-models-status">✅ Success</span> |
+| List Styles   | <span id="test-list-styles-date">2024-12-08</span> | <span id="test-list-styles-status">✅ Success</span> |
 
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">sad lonely little white Puma in abandoned creepy dark orphanage, highly detailed film still from the orphanage, 50mm, horror, sinister, photography by Patricia Piccinini,</pre>
+<pre id="test-text2image-prompt">a digital painting of a walrus, holding a glowing ball, cyberpunk art, inspired by tomasz alen kopera, fantasy art, skeleton warrior, textured detailed skeleton, in style the demon seated, beeple artwork, shaman witch, official fanart behance hd, detailed painting 4k, photo of ghost of anubis, wholesome techno - shaman lady, fantasy illustration,</pre>
 
 **Images:**
 
 | Model           | Style          | Image                                                                                                                             |
 |-----------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2024-12-07](img/testresuls/2024-12-07-no-style.jpg)</span>                   |
-| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2024-12-07](img/testresuls/2024-12-07-detailed-photo.jpg)</span> |
-| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2024-12-07](img/testresuls/2024-12-07-anime.jpg)</span>                            |
-| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2024-12-07](img/testresuls/2024-12-07-kandinsky.jpg)</span>                |
+| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2024-12-08](img/testresuls/2024-12-08-no-style.jpg)</span>                   |
+| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2024-12-08](img/testresuls/2024-12-08-detailed-photo.jpg)</span> |
+| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2024-12-08](img/testresuls/2024-12-08-anime.jpg)</span>                            |
+| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2024-12-08](img/testresuls/2024-12-08-kandinsky.jpg)</span>                |
 
 ## Resources
 
