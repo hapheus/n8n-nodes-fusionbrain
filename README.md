@@ -71,23 +71,23 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                        | Status                                              |
 |---------------|----------------------------------------------------|-----------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2024-12-15</span>  | <span id="test-text2image-status">✅ Success</span>  |
-| List Models   | <span id="test-list-models-date">2024-12-15</span> | <span id="test-list-models-status">✅ Success</span> |
-| List Styles   | <span id="test-list-styles-date">2024-12-15</span> | <span id="test-list-styles-status">✅ Success</span> |
+| Text to Image | <span id="test-text2image-date">2024-12-16</span>  | <span id="test-text2image-status">✅ Success</span>  |
+| List Models   | <span id="test-list-models-date">2024-12-16</span> | <span id="test-list-models-status">✅ Success</span> |
+| List Styles   | <span id="test-list-styles-date">2024-12-16</span> | <span id="test-list-styles-status">✅ Success</span> |
 
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">insanely detailed 3d render, Cute teddy bear, , floating on sea stormy waves and huge low poly rock, full moon in the sky, extremely detailed 4k digital painting cozy indoor lighting, artstation,detailed, character design by mark ryden and pixar and hayao miyazaki,hyperrealistic, super resolution,dramatic shadows, masterpiece, hard edge, breathtaking, shot on Canon 5D,dark britt photographic engine,Rendered in Cinema4D, unreal engine 5,octane render,</pre>
+<pre id="test-text2image-prompt">a spooky landscape art of a gepard,</pre>
 
 **Images:**
 
 | Model           | Style          | Image                                                                                                                             |
 |-----------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2024-12-15](img/testresuls/2024-12-15-no-style.jpg)</span>                   |
-| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2024-12-15](img/testresuls/2024-12-15-detailed-photo.jpg)</span> |
-| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2024-12-15](img/testresuls/2024-12-15-anime.jpg)</span>                            |
-| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2024-12-15](img/testresuls/2024-12-15-kandinsky.jpg)</span>                |
+| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2024-12-16](img/testresuls/2024-12-16-no-style.jpg)</span>                   |
+| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2024-12-16](img/testresuls/2024-12-16-detailed-photo.jpg)</span> |
+| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2024-12-16](img/testresuls/2024-12-16-anime.jpg)</span>                            |
+| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2024-12-16](img/testresuls/2024-12-16-kandinsky.jpg)</span>                |
 
 ## Resources
 
