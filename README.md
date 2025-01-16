@@ -78,7 +78,7 @@ This section displays the results of tests for each operation, based on a live n
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">mummy,, by Cyril Rolando,</pre>
+<pre id="test-text2image-prompt">a stunning graffiti of a prontosaur,</pre>
 
 **Images:**
 
