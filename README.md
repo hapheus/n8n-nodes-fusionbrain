@@ -71,23 +71,23 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                        | Status                                              |
 |---------------|----------------------------------------------------|-----------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2025-02-04</span>  | <span id="test-text2image-status">✅ Success</span>  |
-| List Models   | <span id="test-list-models-date">2025-02-04</span> | <span id="test-list-models-status">✅ Success</span> |
-| List Styles   | <span id="test-list-styles-date">2025-02-04</span> | <span id="test-list-styles-status">✅ Success</span> |
+| Text to Image | <span id="test-text2image-date">2025-02-05</span>  | <span id="test-text2image-status">✅ Success</span>  |
+| List Models   | <span id="test-list-models-date">2025-02-05</span> | <span id="test-list-models-status">✅ Success</span> |
+| List Styles   | <span id="test-list-styles-date">2025-02-05</span> | <span id="test-list-styles-status">✅ Success</span> |
 
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">A Beautiful digital artwork of a Gorilla figure made of glowing liquid amber, honey and flames, in style by Dan Mumford, Cyril Rolando and M.W Kaluta,</pre>
+<pre id="test-text2image-prompt">a digital painting of a woman holding a glowing ball, cyberpunk art, inspired by tomasz alen kopera, fantasy art, skeleton warrior, textured detailed skeleton, in style the demon seated, beeple artwork, shaman witch, official fanart behance hd, detailed painting 4k, photo of ghost of anubis, wholesome techno - shaman lady, fantasy illustration,</pre>
 
 **Images:**
 
 | Model           | Style          | Image                                                                                                                             |
 |-----------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2025-02-04](img/testresuls/2025-02-04-no-style.jpg)</span>                   |
-| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2025-02-04](img/testresuls/2025-02-04-detailed-photo.jpg)</span> |
-| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2025-02-04](img/testresuls/2025-02-04-anime.jpg)</span>                            |
-| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2025-02-04](img/testresuls/2025-02-04-kandinsky.jpg)</span>                |
+| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2025-02-05](img/testresuls/2025-02-05-no-style.jpg)</span>                   |
+| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2025-02-05](img/testresuls/2025-02-05-detailed-photo.jpg)</span> |
+| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2025-02-05](img/testresuls/2025-02-05-anime.jpg)</span>                            |
+| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2025-02-05](img/testresuls/2025-02-05-kandinsky.jpg)</span>                |
 
 ## Resources
 
