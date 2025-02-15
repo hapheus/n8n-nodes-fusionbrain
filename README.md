@@ -71,23 +71,23 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                        | Status                                              |
 |---------------|----------------------------------------------------|-----------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2025-02-14</span>  | <span id="test-text2image-status">✅ Success</span>  |
-| List Models   | <span id="test-list-models-date">2025-02-14</span> | <span id="test-list-models-status">✅ Success</span> |
-| List Styles   | <span id="test-list-styles-date">2025-02-14</span> | <span id="test-list-styles-status">✅ Success</span> |
+| Text to Image | <span id="test-text2image-date">2025-02-15</span>  | <span id="test-text2image-status">✅ Success</span>  |
+| List Models   | <span id="test-list-models-date">2025-02-15</span> | <span id="test-list-models-status">✅ Success</span> |
+| List Styles   | <span id="test-list-styles-date">2025-02-15</span> | <span id="test-list-styles-status">✅ Success</span> |
 
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">a ladybug, by Quentin Blake,</pre>
+<pre id="test-text2image-prompt">angel, breathtaking borderland fantasycore artwork by Android Jones, Jean Baptiste monge, Alberto Seveso, James Jean, Jeremy Mann, maximalist highly detailed and intricate professional photography, masterpiece, 8k concept art trending on Artstation, triadic colors, Unreal Engine 5 cg society,</pre>
 
 **Images:**
 
 | Model           | Style          | Image                                                                                                                             |
 |-----------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2025-02-14](img/testresuls/2025-02-14-no-style.jpg)</span>                   |
-| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2025-02-14](img/testresuls/2025-02-14-detailed-photo.jpg)</span> |
-| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2025-02-14](img/testresuls/2025-02-14-anime.jpg)</span>                            |
-| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2025-02-14](img/testresuls/2025-02-14-kandinsky.jpg)</span>                |
+| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2025-02-15](img/testresuls/2025-02-15-no-style.jpg)</span>                   |
+| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2025-02-15](img/testresuls/2025-02-15-detailed-photo.jpg)</span> |
+| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2025-02-15](img/testresuls/2025-02-15-anime.jpg)</span>                            |
+| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2025-02-15](img/testresuls/2025-02-15-kandinsky.jpg)</span>                |
 
 ## Resources
 
