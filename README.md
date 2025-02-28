@@ -71,23 +71,23 @@ This section displays the results of tests for each operation, based on a live n
 
 | Operation     | Last Tested                                        | Status                                              |
 |---------------|----------------------------------------------------|-----------------------------------------------------|
-| Text to Image | <span id="test-text2image-date">2025-02-27</span>  | <span id="test-text2image-status">✅ Success</span>  |
-| List Models   | <span id="test-list-models-date">2025-02-27</span> | <span id="test-list-models-status">✅ Success</span> |
-| List Styles   | <span id="test-list-styles-date">2025-02-27</span> | <span id="test-list-styles-status">✅ Success</span> |
+| Text to Image | <span id="test-text2image-date">2025-02-28</span>  | <span id="test-text2image-status">✅ Success</span>  |
+| List Models   | <span id="test-list-models-date">2025-02-28</span> | <span id="test-list-models-status">✅ Success</span> |
+| List Styles   | <span id="test-list-styles-date">2025-02-28</span> | <span id="test-list-styles-status">✅ Success</span> |
 
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">hornet as a character from folklore or mythology, such as a fairy or a mermaid, by Arthur Rackham and Edmund Dulac, whimsical and fantastical,</pre>
+<pre id="test-text2image-prompt">a hamster, by Beatrix Potter and Cyril Rolando,</pre>
 
 **Images:**
 
 | Model           | Style          | Image                                                                                                                             |
 |-----------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2025-02-27](img/testresuls/2025-02-27-no-style.jpg)</span>                   |
-| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2025-02-27](img/testresuls/2025-02-27-detailed-photo.jpg)</span> |
-| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2025-02-27](img/testresuls/2025-02-27-anime.jpg)</span>                            |
-| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2025-02-27](img/testresuls/2025-02-27-kandinsky.jpg)</span>                |
+| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2025-02-28](img/testresuls/2025-02-28-no-style.jpg)</span>                   |
+| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2025-02-28](img/testresuls/2025-02-28-detailed-photo.jpg)</span> |
+| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2025-02-28](img/testresuls/2025-02-28-anime.jpg)</span>                            |
+| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2025-02-28](img/testresuls/2025-02-28-kandinsky.jpg)</span>                |
 
 ## Resources
 
