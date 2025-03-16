@@ -78,7 +78,7 @@ This section displays the results of tests for each operation, based on a live n
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">insanely detailed 3d render, Cute Bat , floating on sea stormy waves and huge low poly rock, full moon in the sky, extremely detailed 4k digital painting cozy indoor lighting, artstation,detailed, character design by mark ryden and pixar and hayao miyazaki,hyperrealistic, super resolution,dramatic shadows, masterpiece, hard edge, breathtaking, shot on Canon 5D,dark britt photographic engine,Rendered in Cinema4D, unreal engine 5,octane render,</pre>
+<pre id="test-text2image-prompt">Commercial photography, a bunny in foreground, powerful explosion of yellow dust, white lighting, studio light, 8k octane rendering, high resolution photography, insanely detailed, fine details, on black isolated plain, stock photo, professional color grading,</pre>
 
 **Images:**
 
