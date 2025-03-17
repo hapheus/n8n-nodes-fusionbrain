@@ -78,7 +78,7 @@ This section displays the results of tests for each operation, based on a live n
 ### Created Images
 
 **Prompt:**
-<pre id="test-text2image-prompt">gepard as a character from folklore or mythology, such as a fairy or a mermaid, by Arthur Rackham and Edmund Dulac, whimsical and fantastical,</pre>
+<pre id="test-text2image-prompt">#eagle person, Dungeons and dragons, monster, sewers, Black hair, hooded, shady, knife, crawling, Fierce, Scary, nasty, wererat, Monstrous, vicious, rabid, Humanoid, Simple clothes, ragged, Dynamic pose, dungeon, Chains, Fighting, Dynamic, warlock, Sorcerer,</pre>
 
 **Images:**
 
