@@ -164,7 +164,7 @@ export class FusionbrainAiNode implements INodeType {
 
 				const options: OptionsWithUri = {
 					method: 'GET',
-					uri: 'https://api-key.fusionbrain.ai/key/api/v1/models',
+					uri: 'https://api-key.fusionbrain.ai/key/api/v1/pipelines',
 					json: true,
 				};
 				const models = await this.helpers.requestWithAuthentication.call(
@@ -209,7 +209,7 @@ export class FusionbrainAiNode implements INodeType {
 		const returnData: INodeExecutionData[] = [];
 		const dataPropertyName: string = 'data';
 
-		let modelId: number;
+		let pipelineId: number;
 		let style: string;
 		let prompt: string;
 		let negativePrompt: string;
@@ -223,7 +223,7 @@ export class FusionbrainAiNode implements INodeType {
 				operation = this.getNodeParameter('operation', itemIndex, '') as string;
 
 				if (operation === 'text2image') {
-					modelId = this.getNodeParameter('model_id', itemIndex, '') as number;
+					pipelineId = this.getNodeParameter('model_id', itemIndex, '') as number;
 					style = this.getNodeParameter('style', itemIndex, '') as string;
 					prompt = this.getNodeParameter('prompt', itemIndex, '') as string;
 					negativePrompt = this.getNodeParameter('negative_prompt', itemIndex, '') as string;
@@ -235,7 +235,8 @@ export class FusionbrainAiNode implements INodeType {
 						style: style,
 						width: width,
 						height: height,
-						negativePromptUnclip: negativePrompt,
+						numImages: 1,
+						negativePromptDecoder: negativePrompt,
 						generateParams: {
 							query: prompt,
 						},
@@ -243,13 +244,13 @@ export class FusionbrainAiNode implements INodeType {
 
 					const options: OptionsWithUri = {
 						method: 'POST',
-						uri: 'https://api-key.fusionbrain.ai/key/api/v1/text2image/run',
+						uri: 'https://api-key.fusionbrain.ai/key/api/v1/pipeline/run',
 						json: true,
 						headers: {
 							'Content-Type': 'multipart/form-data',
 						},
 						formData: {
-							model_id: modelId,
+							pipeline_id: pipelineId,
 							params: {
 								value: JSON.stringify(data),
 								options: {
@@ -268,13 +269,13 @@ export class FusionbrainAiNode implements INodeType {
 					const checkStatusOptions: OptionsWithUri = {
 						method: 'GET',
 						uri:
-							'https://api-key.fusionbrain.ai/key/api/v1/text2image/status/' + initialResponse.uuid,
+							'https://api-key.fusionbrain.ai/key/api/v1/pipeline/status/' + initialResponse.uuid,
 						json: true,
 					};
 
 					let response = undefined;
 					do {
-						await new Promise((resolve) => setTimeout(resolve, 250));
+						await new Promise((resolve) => setTimeout(resolve, 2000));
 						response = await this.helpers.requestWithAuthentication.call(
 							this,
 							'hapheusFusionbrainAiCredentialsApi',
@@ -282,9 +283,9 @@ export class FusionbrainAiNode implements INodeType {
 						);
 					} while (response.status !== 'DONE');
 
-					for (let i = 0; i < response.images.length; i++) {
+					for (let i = 0; i < response.files.length; i++) {
 						const binaryData = await this.helpers.prepareBinaryData(
-							Buffer.from(response.images[i], 'base64'),
+							Buffer.from(response.files[i], 'base64'),
 						);
 						binaryData.mimeType = 'image/jpg';
 						binaryData.fileExtension = 'jpg';
@@ -311,7 +312,7 @@ export class FusionbrainAiNode implements INodeType {
 						'hapheusFusionbrainAiCredentialsApi',
 						{
 							method: 'GET',
-							uri: 'https://api-key.fusionbrain.ai/key/api/v1/models',
+							uri: 'https://api-key.fusionbrain.ai/key/api/v1/pipelines',
 							json: true,
 						},
 					);

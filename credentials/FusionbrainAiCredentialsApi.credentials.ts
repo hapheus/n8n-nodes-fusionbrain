@@ -44,7 +44,7 @@ export class FusionbrainAiCredentialsApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: 'https://api-key.fusionbrain.ai/key/api/v1/',
+			baseURL: 'https://api-key.fusionbrain.ai/key/api/v1/pipelines',
 			url: 'models',
 		},
 	};
