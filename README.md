@@ -1,5 +1,13 @@
 # n8n-nodes-fusionbrain
 
+
+⚠️ **Notice: This node is no longer maintained.**  
+Due to recent updates, the Fusionbrain API has become too unstable and unreliable for production use. Therefore, I have decided to stop maintaining this node.  
+There are now faster and more reliable image generation models and services available that I recommend considering instead.
+
+---
+
+
 This is an n8n community node. It lets you use _fusionbrain.ai_ in your n8n workflows.
 
 The fusionbrain.ai API offers a seamless solution for generating high-resolution images in JPG format, with resolutions
